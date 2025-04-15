@@ -1,0 +1,53 @@
+body {
+  background-color: bisque;
+  background-image: url("img/pngtree-hexagon-honeycomb-banner-background-image_520586.jpg");
+  margin: 50px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 600px;
+  background-color: rgb(20, 19, 19);
+  color: aliceblue;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  border-radius: 7px;
+}
+
+.btn-add {
+  background-color: rgb(42, 186, 138);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.tarea {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid white;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  background-color: #363a36;
+  gap: 10px;
+  border-radius: 7px;
+}
+
+/* Para separar checkbox y texto */
+.texto-tarea {
+  flex: 1;
+  text-align: left;
+  margin-left: 10px;
+}
+
+.acciones button {
+  border: 2px solid white;
+  background-color: rgb(229, 137, 137);
+  color: rgb(0, 0, 0);
+  margin-left: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
