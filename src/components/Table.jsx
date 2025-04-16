@@ -2,24 +2,33 @@ import { useState } from "react";
 
 export function Table() {
   const [task, setTask] = useState([]);
-  const [newTask, setNewTask] = useState();
+  const [newTask, setNewTask] = useState("");
+  const [error, setError] = useState("");
 
   function handleInputChange(e) {
     setNewTask(e.target.value);
   }
 
+  //AÑADIR TAREA
   function addTask(e) {
     e.preventDefault;
-    setTask([...task, newTask]);
-    setNewTask("");
-  }
 
+    if (newTask === "" || newTask === undefined) {
+      setError("No puede estar vacio");
+
+      setTimeout(() => {
+        setError("");
+      }, 2000);
+    } else {
+      setNewTask("");
+      setTask([...task, newTask]);
+    }
+  }
+  //ELIMINAR TAREA
   //Mirar bien el filter
   function deleteTask(index) {
     const updateTask = task.filter((_, i) => i !== index);
     setTask(updateTask);
-
-    console.log(updateTask);
   }
 
   return (
@@ -33,7 +42,7 @@ export function Table() {
             id="task-input"
             onChange={handleInputChange}
             type="text"
-            value={newTask || ""}
+            value={newTask}
           ></input>
           <input
             onClick={addTask}
@@ -43,6 +52,7 @@ export function Table() {
           />
         </div>
         <h3>Tasks List</h3>
+
         {/* //Mapear         */}
 
         <div className="tabla">
@@ -54,12 +64,12 @@ export function Table() {
                   {tarea}
                 </label>
                 <div className="acciones">
-                  <button>Edit</button>
                   <button onClick={() => deleteTask(index)}>Delete</button>
                 </div>
               </li>
             ))}
           </ul>
+          <p className="error">{error}</p>
         </div>
       </main>
     </>
